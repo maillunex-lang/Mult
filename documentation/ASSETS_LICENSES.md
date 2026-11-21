@@ -6,10 +6,10 @@
 
 | Ресурс | Автор | Источник | Лицензия | YouTube OK |
 |--------|-------|----------|----------|------------|
-| Animated Robot (база Бипа) | Quaternius | https://poly.pizza/m/QCm7qe9uNJ · https://quaternius.itch.io/lowpoly-robot · зеркало raylib/Aetherium | CC0 1.0 | Да |
-| Furniture Kit (стеллаж, лампа, мишка, столы, rug и др.) | Kenney | https://kenney.nl/assets/furniture-kit | CC0 1.0 | Да |
-| Комната (shell), жёлтое кресло, зелёная корзина, кубики, красный мяч | Проект Mult (Blender) | локально `locations/`, `props/` | Оригинал проекта | Да |
-| Адаптация Бипа (цвет #75D4E8, антенна, масштаб 65 см) | Проект Mult | `characters/beep/` | Оригинал на базе CC0 | Да |
+| Бип Soft Toy (корпус, глаза, антенна, руки/ноги) | Проект Mult (Blender) | `characters/beep/beep_soft.glb` | Оригинал проекта | Да |
+| Комната, жёлтое кресло, зелёная корзина, кубики, красный мяч, стеллаж, лампа, мишка | Проект Mult (Blender) | `locations/`, `props/` | Оригинал проекта | Да |
+| Quaternius Animated Robot (архив / запасной источник) | Quaternius | https://poly.pizza/m/QCm7qe9uNJ | CC0 1.0 | Да |
+| Kenney Furniture Kit (архив, не используется в финальной сцене) | Kenney | https://kenney.nl/assets/furniture-kit | CC0 1.0 | Да |
 
 ### Проверка происхождения
 
@@ -21,8 +21,8 @@
 
 | Ресурс | Автор / способ | Лицензия | YouTube OK |
 |--------|----------------|----------|------------|
-| Реплики диктора | Microsoft Edge TTS `ru-RU-DmitryNeural` + fallback eSpeak-NG (ru) | Синтез для проекта; eSpeak-NG — GPL (бинарник не распространяется в составе ролика) | Да (синтезированная речь) |
-| Реплики Бипа | eSpeak-NG (ru) + обработка FFmpeg (pitch/echo) | Синтез для проекта | Да |
+| Реплики диктора | Google TTS (gTTS), язык `ru` | Синтезированная речь для проекта | Да |
+| Реплики Бипа | Google TTS (gTTS) `ru` + лёгкий подъём тона FFmpeg | Синтезированная речь для проекта | Да |
 | Музыка intro / bg / outro | Оригинальная процедурная генерация (Python) | Оригинал проекта | Да |
 | SFX (шаги, качение, удивление, pickup, success) | Оригинальная процедурная генерация | Оригинал проекта | Да |
 
