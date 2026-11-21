@@ -1,42 +1,33 @@
 # Бип и его открытия
 
-Детский 3D-мультсериал (1–3 года). Движок: **Godot 4.4**.
+Детский мультсериал.
 
-## Серия 1 — «Бип и красный мячик»
+## EP-002 — «Бип и цветные шарики» (2D, до 2 лет)
 
-- Длительность: **180 секунд**
-- Формат: **1920×1080**, 30 FPS, MP4 (H.264 + AAC)
-- Озвучка: русский (диктор + Бип)
-- Готовый файл: `godot_project/output/BIP_EP001_FINAL.mp4`
+Музыкальный развивающий мультик про цвета. **Без озвучки** — крупные русские субтитры снизу.
 
-## Быстрый старт
+- 100 с · 1920×1080 · 30 FPS · H.264 + AAC
+- Вся графика и анимация сгенерированы в Python (Pillow), без Godot
+- Файл: `ep002_2d/output/BIP_EP002_COLORS_FINAL.mp4`
 
 ```bash
-# Зависимости: Godot 4.4+, FFmpeg, Python 3
-export GODOT=/path/to/godot
-
-# Быстрый тест (12 с, 720p)
-./scripts/build_episode.sh PREVIEW
-
-# Полная серия (180 с, 1080p)
-./scripts/build_episode.sh FINAL
+./scripts/build_ep002_2d.sh
 ```
 
-Подробности: [`documentation/RENDERING.md`](documentation/RENDERING.md).
+Сюжет: [`ep002_2d/docs/EP002_STORY.md`](ep002_2d/docs/EP002_STORY.md)
+
+## EP-001 — «Бип и красный мячик» (3D)
+
+- 180 с · 1080p · русская озвучка
+- `godot_project/output/BIP_EP001_FINAL.mp4`
+- Сборка: `./scripts/build_episode.sh FINAL`
 
 ## Структура
 
 ```
-godot_project/
-  characters/     # Бип (Quaternius + адаптация)
-  locations/      # Комната Бипа
-  props/          # Мяч, корзина, мебель, игрушки
-  episodes/ep001/ # Таймлайн и режиссёр серии
-  audio/          # Речь, музыка, SFX, master WAV
-  output/         # MP4 и логи сборки
-  screenshots/    # Контрольные кадры
+ep002_2d/           # 2D серия (Python + FFmpeg)
+godot_project/      # 3D серия EP-001
 scripts/
-  build_episode.sh
 documentation/
 ```
 
