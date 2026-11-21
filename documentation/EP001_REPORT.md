@@ -1,59 +1,52 @@
 # Отчёт EP-001 — «Бип и красный мячик»
 
-## Статус
+## Статус: готовый MP4 собран и проверен
 
-Собран полноценный Godot 4 проект серии с автоматическим экспортом Movie Maker → FFmpeg. Финальный MP4: `godot_project/output/BIP_EP001_FINAL.mp4` (после успешного `./scripts/build_episode.sh FINAL`).
+Файл: **`godot_project/output/BIP_EP001_FINAL.mp4`**
+
+| Параметр | Значение | Статус |
+|----------|----------|--------|
+| Длительность | 180.000 с | PASS |
+| Разрешение | 1920×1080 | PASS |
+| FPS | 30 | PASS |
+| Кадры | 5400 | PASS |
+| Видео | H.264 | PASS |
+| Аудио | AAC | PASS |
+| Размер | ~45 МБ | — |
 
 ## Что сделано
 
-- Godot 4.4 проект без игрового UI/механик
-- Персонаж Бип на базе Quaternius Animated Robot (CC0) + цвет/антенна/масштаб
-- Комната Soft Toy + мебель Kenney + реквизит (мяч, корзина, кубики, кресло)
-- Детерминированный таймлайн 18 кадров / 180 с (`EpisodeDirector.gd`)
-- Русская озвучка диктора и Бипа
-- Оригинальная мягкая музыка и SFX
-- PREVIEW и FINAL сборка через `scripts/build_episode.sh`
-- Документация лицензий и повторного рендера
+1. Godot 4.4 проект мультфильма (не игра): сцена, свет, таймлайн 18 кадров.
+2. Бип: Quaternius Animated Robot (CC0) + бирюзовый цвет #75D4E8, жёлтая антенна, рост ~65 см, анимации Idle/Walk/Wave/Yes/No и др.
+3. Комната Soft Toy + мебель Kenney Furniture Kit (CC0) + мяч/корзина/кресло/кубики.
+4. Русская озвучка диктора и Бипа + master WAV 180 с.
+5. Автосборка: Godot Movie Maker → FFmpeg → ffprobe (`scripts/build_episode.sh PREVIEW|FINAL`).
+6. Скриншоты: `godot_project/screenshots/ep001_{begin,middle,end}.png`.
+7. Документация: README, PRODUCTION, RENDERING, ASSETS_LICENSES.
 
-## 3D-модели и источники
+## Источники 3D
 
 | Модель | URL | Лицензия |
 |--------|-----|----------|
 | Quaternius Animated Robot | https://poly.pizza/m/QCm7qe9uNJ | CC0 |
 | Kenney Furniture Kit | https://kenney.nl/assets/furniture-kit | CC0 |
-| Room / ball / basket / chair / blocks | Blender, проект Mult | оригинал |
+| Room / ball / basket / yellow chair / blocks | Blender, проект | оригинал |
 
 ## TTS
 
-- Диктор: Edge TTS `ru-RU-DmitryNeural` (часть реплик) + eSpeak-NG ru fallback
-- Бип: eSpeak-NG ru + FFmpeg pitch/echo (дружелюбный «электронный» оттенок)
-
-## Проверки
-
-| Проверка | Результат |
-|----------|-----------|
-| Бип — полноценная 3D-модель (не примитив-капсула) | Да (Quaternius + адаптация) |
-| GLB загружаются | Да |
-| 18 кадров таймлайна | Да |
-| Movie Maker 30 FPS | Да (PREVIEW пройден) |
-| Аудиодорожка AAC | Да (mux FFmpeg) |
-| PREVIEW 12 с 1280×720 | Пройден |
-| FINAL 180 с 1080p | См. лог `output/final_build.log` / ffprobe |
+- Диктор: Edge TTS `ru-RU-DmitryNeural` + eSpeak-NG (fallback при лимитах API)
+- Бип: eSpeak-NG + FFmpeg (pitch/echo)
 
 ## Как повторить рендер
 
 ```bash
+export GODOT=/path/to/godot
 ./scripts/build_episode.sh FINAL
 ```
 
-Подробности: `documentation/RENDERING.md`.
+## Оставшиеся улучшения (не блокируют сдачу файла)
 
-## Ограничения среды
-
-- Рендер на CPU (llvmpipe), без дискретного GPU — FULL занимает порядка нескольких минут.
-- Edge TTS нестабилен по сети → часть дикторских реплик через eSpeak-NG.
-- Аудио Movie Maker не используется как источник истины; синхронизация через master WAV + FFmpeg.
-
-## Где лежит MP4
-
-`godot_project/output/BIP_EP001_FINAL.mp4`
+- Смягчить тени / подобрать экспозицию под preschool look.
+- Доработать стыки стен комнаты (сейчас панели + открытый фронт для камеры).
+- При желании заменить eSpeak-реплики полностью на Edge TTS при стабильной сети.
+- Более плотный риггинг мимики Бипа (сейчас — скелетные клипы Quaternius + таймлайн).
