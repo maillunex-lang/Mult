@@ -1,0 +1,20 @@
+# Godot
+godot_project/.godot/
+godot_project/override.cfg
+*.translation
+
+# Build intermediates
+godot_project/output/*.avi
+godot_project/output/*.log
+godot_project/output/preview_audio.wav
+godot_project/output/raw_*.avi
+
+# Keep final deliverables tracked if size allows; large binaries via LFS when available
+*.tmp
+__pycache__/
+.DS_Store
+
+# Secrets
+.env
+*.pem
+*_secret*
